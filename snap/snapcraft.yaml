@@ -1,0 +1,26 @@
+name: gopls
+version: '0.1'
+summary: gopls Language Server
+description: |
+  gopls (pronounced: "go please") is an implementation of the Language
+  Server Protocol (LSP) server for Go. The LSP allows any text editor to be
+  extended with IDE-like features.
+
+base: core18
+grade: stable
+confinement: devmode
+
+apps:
+  gopls:
+    command: gopls
+    # plugs:
+    #   - home
+
+parts:
+  gopls:
+    plugin: go
+    go-packages:
+      - golang.org/x/tools/cmd/gopls
+    build-packages:
+      - git
+      - gcc
