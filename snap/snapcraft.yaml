@@ -8,13 +8,11 @@ description: |
 
 base: core18
 grade: stable
-confinement: devmode
+confinement: classic
 
 apps:
   gopls:
     command: gopls
-    # plugs:
-    #   - home
 
 parts:
   gopls:
