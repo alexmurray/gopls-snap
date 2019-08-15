@@ -12,7 +12,7 @@ confinement: classic
 
 apps:
   gopls:
-    command: gopls
+    command: bin/gopls
 
 parts:
   gopls:
