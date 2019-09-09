@@ -1,5 +1,5 @@
 name: gopls
-version: '0.1'
+adopt-info: gopls
 summary: gopls Language Server
 description: |
   gopls (pronounced: "go please") is an implementation of the Language
@@ -7,7 +7,6 @@ description: |
   extended with IDE-like features.
 
 base: core18
-grade: stable
 confinement: classic
 
 apps:
@@ -22,3 +21,7 @@ parts:
     build-packages:
       - git
       - gcc
+    override-pull: |
+      snapcraftctl pull
+      snapcraftctl set-version $(git -C ../go/src/golang.org/x/tools/gopls describe --tags | sed 's/gopls\/v//')
+      snapcraftctl set-grade devel
