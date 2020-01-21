@@ -20,7 +20,7 @@ parts:
   gopls:
     plugin: go
     go-packages:
-      - golang.org/x/tools/cmd/gopls
+      - golang.org/x/tools/gopls
     build-packages:
       - git
       - gcc
