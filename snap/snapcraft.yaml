@@ -26,5 +26,5 @@ parts:
       - gcc
     override-pull: |
       snapcraftctl pull
-      snapcraftctl set-version $(git -C ../go/src/golang.org/x/tools/gopls describe --tags | sed 's/gopls\/v//')
+      snapcraftctl set-version $(git -C ../go/src/golang.org/x/tools/gopls describe --tags --always | sed 's/gopls\/v//')
       snapcraftctl set-grade devel
