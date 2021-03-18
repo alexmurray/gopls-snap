@@ -9,7 +9,7 @@ description: |
   information about the status of gopls and its supported features
   [here](https://github.com/golang/tools/blob/master/gopls/doc/status.md).
 
-base: core18
+base: core20
 confinement: classic
 grade: devel
 
@@ -20,14 +20,13 @@ apps:
 parts:
   gopls:
     plugin: go
-    go-packages:
-      - golang.org/x/tools/gopls
+    source: https://github.com/golang/tools.git
+    source-subdir: gopls
     build-packages:
       - git
       - gcc
     override-pull: |
       snapcraftctl pull
-      cd ../go/src/golang.org/x/tools/gopls
       lastTag=$(git describe --tags --always $(git rev-list --tags=gopls) | grep gopls/v[0-9].[0-9].[0-9]$ | head -n 1)
       git checkout $lastTag
       snapcraftctl set-version $(echo $lastTag | sed 's/gopls\/v//')
