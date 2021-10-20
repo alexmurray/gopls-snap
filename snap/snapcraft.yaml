@@ -1,17 +1,14 @@
 name: gopls
 adopt-info: gopls
-summary: gopls Language Server
+summary: gopls, the Go Language Server
 description: |
-  gopls (pronounced: "go please") is the official language server for the
-  Go language.
-
-  It is currently in alpha, so it is not stable. You can see more
-  information about the status of gopls and its supported features
-  [here](https://github.com/golang/tools/blob/master/gopls/doc/status.md).
+  gopls (pronounced "Go please") is the official Go language server
+  developed by the Go team. It provides IDE features to any LSP-compatible
+  editor.
 
 base: core20
 confinement: classic
-grade: devel
+grade: stable
 
 apps:
   gopls:
