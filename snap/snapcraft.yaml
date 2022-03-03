@@ -1,5 +1,5 @@
 name: gopls
-adopt-info: gopls
+version: 0.8.0
 summary: gopls, the Go Language Server
 description: |
   gopls (pronounced "Go please") is the official Go language server
@@ -18,12 +18,8 @@ parts:
   gopls:
     plugin: go
     source: https://github.com/golang/tools.git
+    source-tag: gopls/v$SNAPCRAFT_PROJECT_VERSION
     source-subdir: gopls
     build-packages:
       - git
       - gcc
-    override-pull: |
-      snapcraftctl pull
-      lastTag=$(git describe --tags --always $(git rev-list --tags=gopls) | grep "gopls/v[0-9]\+.[0-9]\+.[0-9]\+$" | head -n 1)
-      git checkout $lastTag
-      snapcraftctl set-version $(echo $lastTag | sed 's/gopls\/v//')
