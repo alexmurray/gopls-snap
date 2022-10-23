@@ -1,5 +1,5 @@
 name: gopls
-version: 0.9.5
+version: 0.10.0-pre.2
 summary: gopls, the Go Language Server
 description: |
   gopls (pronounced "Go please") is the official Go language server
