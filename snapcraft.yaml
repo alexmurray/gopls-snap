@@ -21,6 +21,10 @@ parts:
     source: https://github.com/golang/tools.git
     source-tag: gopls/v$SNAPCRAFT_PROJECT_VERSION
     source-subdir: gopls
+    # classic confinement runs the binary against the host's libc, so build
+    # it statically to keep it working on releases older than the core24 base
+    build-environment:
+      - CGO_ENABLED: "0"
     build-packages:
       - git
       - gcc
