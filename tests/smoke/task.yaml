@@ -1,0 +1,14 @@
+summary: gopls installs and reports the expected version
+
+execute: |
+  # classic snap, so the command should be on the default PATH
+  command -v gopls | MATCH '^/snap/bin/gopls$'
+
+  # the reported version should be the one the snap was built from - the go
+  # plugin's build leaves the source tree modified, so go stamps the build
+  # +dirty
+  version=$(snap list gopls | awk '$1 == "gopls" { print $2 }')
+  gopls version | MATCH "^golang.org/x/tools/gopls v${version}(\+dirty)?\$"
+
+  gopls help | MATCH '^  check  *show diagnostic results'
+  gopls help | MATCH '^  serve '
